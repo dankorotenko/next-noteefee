@@ -9,13 +9,16 @@ import Account from "../components/icons/logos/Account";
 import Wallet from '../components/icons/logos/Account'
 import Topaz from "../components/icons/logos/Topaz";
 
+
+import { telegram, aptos, discord, slack } from '../../public/logos'
+
 import moment from "moment";
 
 export const notifications = [
   {
     id: "cca46713-d4ba-40cb-8255-0c14dd08245d",
     title: "Notification name",
-    logos: [<Aptos />, <Telegram />],
+    logos: [aptos.src, telegram.src],
     description: "Aptos – Track NFT floor price",
     active: true,
     history: [
@@ -102,7 +105,7 @@ export const notifications = [
   {
     id: "ec8643e4-9610-4c63-900f-0b4b679002ab",
     title: "Disk_15APT",
-    logos: [<Aptos />, <Discord />],
+    logos: [aptos.src, discord.src],
     description: "Aptos account balance - below 15 APT",
     active: true,
     history: [
@@ -135,7 +138,7 @@ export const notifications = [
   {
     id: "123ff874-4abd-44ca-9e99-b4224adf4c11",
     title: "Notification name",
-    logos: [<Aptos />, <Slack />],
+    logos: [aptos.src, slack.src],
     description: "New account transaction",
     active: false,
     history: [
@@ -156,7 +159,7 @@ export const notifications = [
   {
     id: "30cc8461-77dc-4644-829c-7d8d8193c543",
     title: "No history notification",
-    logos: [<Aptos />, <Telegram />],
+    logos: [aptos.src, telegram.src],
     description: "Notifications without history example",
     active: true,
     history: [],

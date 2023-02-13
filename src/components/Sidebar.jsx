@@ -13,27 +13,27 @@ export default function Sidebar({ tab }) {
     {
       title: "Notifications",
       component: <Sms />,
-      path: "/noteefee/notifications",
+      path: "/notifications",
     },
     {
       title: "Streams",
       component: <Puzzle />,
-      path: "/noteefee/streams",
+      path: "/streams",
     },
     {
       title: "Billing",
       component: <FileInvoiceDollar />,
-      path: "/noteefee/billing",
+      path: "/billing",
     },
     {
       title: "Settings",
       component: <Cog />,
-      path: "/noteefee/settings",
+      path: "/settings",
     },
     {
       title: "Connect Wallet",
       component: <Wallet />,
-      path: "/noteefee/notifications",
+      path: "/notifications",
     },
   ];
   return (

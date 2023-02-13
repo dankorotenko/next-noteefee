@@ -1,13 +1,31 @@
 import React, { useEffect, useState } from "react";
+
 import Link from 'next/link'
+import { useRouter } from "next/router";
+
 import Wallet from '../icons/Wallet'
+
 import logo from '../../../public/logo.svg'
 import user from '../../../public/icons/user.svg'
+
 export default function Header() {
+  const [auth, setAuth] = useState("");
   const [openedMobileMenu, setOpenedMobileMenu] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setAuth(
+      router.pathname.split("/")[router.pathname.split("/").length - 1] ===
+        "login" ||
+        router.pathname.split("/")[
+          router.pathname.split("/").length - 1
+        ] === "signup"
+        ? "log"
+        : ""
+    );
+  }, [router]);
   return (
-    // <header className={`${auth}`}>
-    <header className={`auth`}>
+    <header className={`${auth}`}>
       <nav className="container">
         <div className="logo">
           <Link href="/notifications">

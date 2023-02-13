@@ -20,13 +20,13 @@ header.log {
 .sign {
   color: var(--text-clr);
   position: relative;
-  background-image: url("/bg-sign.png");
+  background-image: url("../../public/bg-sign.png");
   background-repeat: no-repeat;
   background-position-x: 110%;
   height: 100vh;
   display: flex;
   &.login{
-    background-image: url("/bg-login.png");
+    background-image: url("../../public/bg-login.png");
   }
 
   img.logo-img {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { BsArrowDown } from "react-icons/bs";
+import { SlArrowRight } from "react-icons/sl";
 import BigSelect from "./BigSelect";
 import Select from "./Select";
 import Modal from "./Modal";
@@ -211,7 +211,8 @@ export default function ActionCard({
                 choose from the list <br />
                 Example format: <br />
                 <span>
-                  <a href="#">https://www.topaz.so/collection/</a>&lt;collection-name&gt;
+                  <a href="#">https://www.topaz.so/collection/</a>
+                  &lt;collection-name&gt;
                 </span>
               </p>
             </div>
@@ -249,7 +250,7 @@ export default function ActionCard({
         {!isOpen && (
           <>
             <p className="cards-container__card_desc">{card.desc}</p>
-            <BsArrowDown />
+            <SlArrowRight />
           </>
         )}
       </div>

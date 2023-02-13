@@ -1,10 +1,10 @@
 import React from "react";
 
-import Link from 'next/link'
+import Link from "next/link";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { BsPlusCircle } from "react-icons/bs";
 
-import InfoCard from '../../components/InfoCard'
+import InfoCard from "../../components/InfoCard";
 import Sidebar from "../../components/Sidebar";
 
 import { notifications } from "../../data/dummy";
@@ -19,7 +19,11 @@ export default function Notifications() {
             Notifications <AiOutlineInfoCircle color="#A8A8A8" />
           </h2>
           <div className="content__header_btns">
-            <Link href="/notifications/create" className="btn filled" style={{'paddingInline': '2.25rem', 'paddingBlock': '.625rem'}}>
+            <Link
+              href="/notifications/create"
+              className="btn filled"
+              style={{ paddingInline: "2.25rem", paddingBlock: ".625rem" }}
+            >
               Create a New notification
             </Link>
           </div>
@@ -32,7 +36,10 @@ export default function Notifications() {
           />
           <InfoCard
             title="Delivered Notifications"
-            percent={notifications.reduce((sum, obj) => sum + obj.history.length, 0)}
+            percent={notifications.reduce(
+              (sum, obj) => sum + obj.history.length,
+              0
+            )}
             max={100}
             tip="*month"
           />
@@ -41,14 +48,14 @@ export default function Notifications() {
           {notifications.length != 0 ? (
             notifications.map((n, i) => (
               <Link
-                href={`/notifications/${n.id}`}
+                href={'/notifications/' + n.id}
                 className="notification-card"
                 key={i}
               >
                 <div className="notification-card__left">
                   <div className="notification-card__logos">
-                    {n.logos[0]}
-                    {n.logos[1]}
+                    <img src={n.logos[0]} />
+                    <img src={n.logos[1]} />
                   </div>
                   <div className="notification-card__info">
                     <h3 className="notification-card__title">{n.title}</h3>

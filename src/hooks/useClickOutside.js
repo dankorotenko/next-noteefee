@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function useClickOutside(ref, handler) {
   useEffect(() => {
     const listener = (event) => {
-      if (ref.current.contains(event.target) || !event.target.closest('.trigger__card')) {
+      if (ref.current.contains(event.target) || !event.target.closest('.cards-container__card')) {
         return;
       }
       handler(event);

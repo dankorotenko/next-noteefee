@@ -1,5 +1,4 @@
 import React from "react";
-import exclamation from '../assets/icons/la_exclamation.svg';
 
 export default function Table({ className, data }) {
   return (
@@ -28,7 +27,7 @@ export default function Table({ className, data }) {
           ""
         )}
       </table>
-      {!data.length ? <div className="no-data"><img src={exclamation} alt="!" /> You currently have no messages<div className="triangle"></div></div> : ""}
+      {!data.length ? <div className="no-data"><img src="icons/exclamation.svg" alt="!" /> You currently have no messages<div className="triangle"></div></div> : ""}
     </>
   );
 }

@@ -13,7 +13,7 @@ main {
   width: 100%;
   padding-block: 1rem;
   position: relative;
-  background-image: url("/bg.png");
+  background-image: url("../../public/bg.png");
   background-repeat: no-repeat;
   background-position: right top;
   background-position-y: -80px;
@@ -23,7 +23,7 @@ main {
   }
 
   &.account {
-    background-image: url("/bg-account.png");
+    background-image: url("../../public/bg-account.png");
     transition: background 200ms ease;
     & > * {
       filter: blur(3px);

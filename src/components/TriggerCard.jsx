@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { BsArrowDown } from "react-icons/bs";
+import { SlArrowRight } from "react-icons/sl";
 import BigSelect from "./BigSelect";
 import Select from "./Select";
 import Modal from "./Modal";
@@ -28,27 +28,27 @@ export default function TriggerCard({
 
   const collectionOptions = [
     {
-      img: collection,
+      img: collection.src,
       name: "Collection #1",
     },
     {
-      img: collection,
+      img: collection.src,
       name: "Collection #2",
     },
     {
-      img: collection,
+      img: collection.src,
       name: "Collection #3",
     },
     {
-      img: collection,
+      img: collection.src,
       name: "Collection #4",
     },
     {
-      img: collection,
+      img: collection.src,
       name: "Collection #5",
     },
     {
-      img: collection,
+      img: collection.src,
       name: "Collection #6",
     },
   ];
@@ -233,7 +233,10 @@ export default function TriggerCard({
                 choose from the list <br />
                 Example format: <br />
                 <span>
-                  <a href="#">https://www.topaz.so/collection/</a>&lt;collection-name&gt;
+                  <a target="_blank" href="https://www.topaz.so/collection">
+                    https://www.topaz.so/collection/
+                  </a>
+                  &lt;collection-name&gt;
                 </span>
               </p>
             </div>
@@ -271,7 +274,7 @@ export default function TriggerCard({
         {!isOpen && (
           <>
             <p className="cards-container__card_desc">{card.desc}</p>
-            <BsArrowDown />
+            <SlArrowRight />
           </>
         )}
       </div>
