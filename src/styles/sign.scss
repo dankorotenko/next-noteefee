@@ -1,0 +1,217 @@
+/*do not show default header*/
+header.log {
+  .line {
+    display: none;
+  }
+  nav {
+    justify-content: flex-end;
+    .logo {
+      display: none;
+    }
+    .right {
+      .wallet {
+        display: none;
+      }
+    }
+  }
+}
+
+/* sign up and login pages styles */
+.sign {
+  color: var(--text-clr);
+  position: relative;
+  background-image: url("/bg-sign.png");
+  background-repeat: no-repeat;
+  background-position-x: 110%;
+  height: 100vh;
+  display: flex;
+  &.login{
+    background-image: url("/bg-login.png");
+  }
+
+  img.logo-img {
+    margin-block: 2.5rem;
+    margin-inline: 14rem 10rem;
+  }
+  &__wrapper {
+    // width: 60%;
+    // flex: 70%;
+    z-index: 1;
+  }
+  &__smartphone {
+    position: relative;
+    img {
+      position: relative;
+      left: -15%;
+      top: 5%;
+    }
+  }
+  &__tip {
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    z-index: 1;
+    color: #fff;
+    background-color: var(--primary-clr);
+    font-weight: 500;
+    max-width: 350px;
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+    font-size: 1.5rem;
+    span {
+      color: var(--orange-clr);
+    }
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid var(--primary-clr);
+      position: absolute;
+      bottom: -15px;
+      transform: rotateZ(135deg);
+      left: 15px;
+    }
+  }
+  &__inner {
+    padding-inline: 14rem 6rem;
+    padding-top: 4.5rem;
+  }
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  &__desc {
+    margin-top: 1rem;
+    a {
+      color: var(--primary-clr);
+      font-weight: 600;
+      margin-left: 0.675rem;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: flex-start;
+    div {
+      width: 100%;
+      position: relative;
+      input {
+        font-size: 0.75rem;
+        width: 100%;
+      }
+      img {
+        position: absolute;
+        right: 0.5rem;
+        top: 6px;
+        cursor: pointer;
+        width: 23px;
+        height: 23px;
+      }
+    }
+  }
+}
+.underline {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(113.55deg, #d7c7f4 30.35%, #f8bdad 100%);
+  height: 2px;
+  margin-top: 2.5rem;
+}
+
+@media (width <= 1024px) {
+  .sign {
+    img.logo-img {
+      margin-inline: 6rem;
+    }
+    &__inner {
+      padding-inline: 6rem;
+    }
+    &__tip {
+      width: 280px;
+      font-size: 1rem;
+    }
+  }
+}
+@media screen and (width <= 768px) {
+  .sign {
+    flex-direction: column-reverse;
+    background-size: 70%;
+    height: auto;
+    img.logo-img {
+      display: none;
+    }
+    .underline {
+      display: none;
+    }
+    &__smartphone {
+      img {
+        width: 60%;
+        left: 5%;
+      }
+    }
+    &__inner {
+      padding-top: 1rem;
+    }
+    &__tip {
+      top: 10%;
+      left: 35%;
+      width: 250px;
+      font-size: 1.25rem;
+    }
+  }
+  header.log {
+    .line {
+      display: block;
+    }
+    nav {
+      justify-content: space-between;
+      .logo {
+        display: block;
+      }
+    }
+  }
+}
+@media screen and (width <= 560px) {
+  .sign {
+    background-size: 110%;
+    background-position-x: 120px;
+    &__inner {
+      padding-inline: 8.3%;
+    }
+    &__title,
+    &__desc {
+      text-align: center;
+    }
+    &__form {
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding-block: 1rem;
+      }
+    }
+    &__smartphone {
+      img {
+        width: 80%;
+        left: -5%;
+      }
+    }
+    &__tip {
+      width: 55%;
+      padding: 1rem;
+      font-size: 1rem;
+      left: 30%;
+    }
+  }
+}
+
+@media screen and (width <=425px) {
+  .sign{
+    &__inner {
+      padding-inline: 2.3%;
+    }
+  }
+}
