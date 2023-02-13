@@ -11,16 +11,14 @@ export default function Actions({ handleChildProps }) {
 
   const handleOpen = (i) => {
     setOpen(i);
-    // handleChildProps({ trigger: triggers[0].title.toLowerCase() });
   };
 
   useEffect(() => {
     setOpen(null);
-    // handleChildProps({ trigger: null });
   }, [closeCard]);
 
   return (
-    <div className="cards-container__body">
+    <div className="cards-container__body action-cards">
       {actions.map((card, i) => (
         <ActionCard
           card={card}

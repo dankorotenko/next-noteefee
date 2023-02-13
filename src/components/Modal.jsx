@@ -36,7 +36,7 @@ export default function Modal({ showModal, setShowModal }) {
             Will use the lastest block when left empty
           </p>
           <div className="modal__inner_body__input">
-            <Select className="modal__inner_body__select" options={options} value={options[0]}/>
+            <Select className="modal__inner_body__select select" options={options} value={options[0]}/>
             <input type="text" placeholder="Test block #001" />
           </div>
           <div className="modal__inner_body__btns">

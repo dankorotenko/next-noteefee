@@ -6,6 +6,7 @@ import Modal from "./Modal";
 
 import { MdClose } from "react-icons/md";
 import collection from "../../public/collection.png";
+import { slackNoBg, twitterNoBg } from "public/logos";
 export default function ActionCard({
   card,
   open,
@@ -18,9 +19,11 @@ export default function ActionCard({
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     discordUrl: "",
-    thresholdAmount: "",
+    botToken: "",
+    chatId: "",
+    emailAddress: '',
+    messageFormat: "HTML",
     type: "Below",
-    aptosPrice: "",
     userWalletAddress: "",
     floorPrice: "",
     collection: "Collection URL",
@@ -96,7 +99,7 @@ export default function ActionCard({
         </h4>
 
         <div className="cards-container__card_btns">
-          {isOpen && (open == 0 || open == 3) && (
+          {isOpen && (
             <>
               <button
                 className="btn bordered test-button"
@@ -104,16 +107,6 @@ export default function ActionCard({
               >
                 Test
               </button>
-              <button
-                className="btn bordered close-button"
-                onClick={() => handleClose(Math.random)}
-              >
-                <MdClose color="#8c5ae8" />
-              </button>
-            </>
-          )}
-          {((isOpen && open == 2) || open == 1) && (
-            <>
               <button
                 className="btn bordered close-button"
                 onClick={() => handleClose(Math.random)}
@@ -138,7 +131,16 @@ export default function ActionCard({
                 value={formData.userAddress}
               />
             </div>
-            <div className=""></div>
+            <div className="message-block">
+              <p>Message</p>
+              <div className="message-block__message">
+                The flor price for the collection <span>Collection</span> has
+                changed <br />
+                The Floor Price is now <span>Floor Price in APT</span> APT.{" "}
+                <br />
+                Find out more on OpenSea: <span>OpenSea URL</span>
+              </div>
+            </div>
             <button
               className="btn bordered test-button--mobile"
               onClick={() => setShowModal(true)}
@@ -150,92 +152,117 @@ export default function ActionCard({
         )}
         {isOpen && open == 1 && (
           <>
-            <p>
-              This task will be disabled once fired to prevent spam from high
-              fluctuations.
-            </p>
-            <div className="field-wrapper threshold-amound">
-              <label htmlFor="threshold-amound">Aptos Price</label>
-              <div className="inputs-wrapper">
-                <Select
-                  className={"select"}
-                  options={["Below", "Above", "Equal to"]}
-                  value={formData.type}
-                  handleSelectProps={handleSelectProps}
-                />
-                <div className="input-wrapper">
-                  <input
-                    type="number"
-                    placeholder="0.00"
-                    id="aptos-price"
-                    name="aptosPrice"
-                    onChange={handleChange}
-                    value={formData.aptosPrice}
-                  />
-                  <p>USD</p>
-                </div>
+            <div className="connect-block">
+              <p>Slack channel</p>
+              <button className="btn bordered">
+                <img src={slackNoBg.src} width="24" />
+                Connect with Slack
+              </button>
+              <p className="tip">Not connected yet</p>
+            </div>
+            <div className="message-block">
+              <p>Message</p>
+              <div className="message-block__message">
+                The flor price for the collection <span>Collection</span> has
+                changed <br />
+                The Floor Price is now <span>Floor Price in APT</span> APT.{" "}
+                <br />
+                Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
             </div>
+
             <button className="btn filled continue-button">Continue</button>
           </>
         )}
         {isOpen && open == 2 && (
           <>
-            <div className="field-wrapper user-address">
-              <label htmlFor="user-wallet-address">User Wallet Address</label>
+            <div className="field-wrapper email-address">
+              <label htmlFor="email-address">Email Address</label>
               <input
                 type="text"
-                placeholder="0*123456789..."
-                id="user-waller-address"
-                name="userWalletAddress"
+                placeholder="234567890:ertywujdewiuhIBIih7373e92"
+                id="email-address"
+                name="emailAddress"
                 onChange={handleChange}
-                value={formData.userWalletAddress}
+                value={formData.userAddress}
               />
-              <p className="tip">Enter the address that you use on Compount</p>
+            </div>
+            <div className="field-wrapper subject">
+              <label htmlFor="subject">Subject</label>
+              <input
+                type="text"
+                placeholder="234567890:ertywujdewiuhIBIih7373e92"
+                id="subject"
+                name="subject"
+                onChange={handleChange}
+                value={formData.userAddress}
+              />
+              <p className="tip" style={{color: 'var(--black2-clr)'}}>This can be a list  of comma and space separated</p>
+            </div>
+            <div className="message-block">
+              <p>Message</p>
+              <div className="message-block__message">
+                The flor price for the collection <span>Collection</span> has
+                changed <br />
+                The Floor Price is now <span>Floor Price in APT</span> APT.{" "}
+                <br />
+                Find out more on OpenSea: <span>OpenSea URL</span>
+              </div>
             </div>
             <button className="btn filled continue-button">Continue</button>
           </>
         )}
         {isOpen && open == 3 && (
           <>
-            <div className="field-wrapper user-address">
-              <label htmlFor="user-address">Collection</label>
-              <BigSelect
-                className={"collection-select"}
-                options={collectionOptions}
-                value={formData.collection}
-                handleBigSelectProps={handleBigSelectProps}
+            <div className="field-wrapper bot-token">
+              <label htmlFor="bot-token">Bot Token</label>
+              <input
+                type="text"
+                placeholder="234567890:ertywujdewiuhIBIih7373e92"
+                id="bot-token"
+                name="botToken"
+                onChange={handleChange}
+                value={formData.userAddress}
               />
-              <p className="topaz-tip">
-                Provide a collection URL from <a href="#">topaz.co</a>, or
-                choose from the list <br />
-                Example format: <br />
-                <span>
-                  <a href="#">https://www.topaz.so/collection/</a>
-                  &lt;collection-name&gt;
-                </span>
-              </p>
             </div>
-            <div className="field-wrapper threshold-amound">
-              <label htmlFor="floor-price">Floor Price</label>
+            <div className="field-wrapper chat-id">
+              <label htmlFor="bot-token">Chat Id</label>
+              <input
+                type="text"
+                placeholder="234567890:ertywujdewiuhIBIih7373e92"
+                id="chat-id"
+                name="chatId"
+                onChange={handleChange}
+                value={formData.userAddress}
+              />
+            </div>
+            <div className="field-wrapper message-format">
+              <label htmlFor="message-format">Message Format</label>
               <div className="inputs-wrapper">
                 <Select
                   className={"select"}
-                  options={["Below", "Above", "Equal"]}
-                  value={formData.type}
+                  options={["HTML", "JSON", "XML"]}
+                  value={formData.messageFormat}
                   handleSelectProps={handleSelectProps}
                 />
-                <div className="input-wrapper">
+                <div className="link-preview">
+                  <label htmlFor="link-preview">Enable Link Preview</label>
                   <input
-                    type="number"
-                    placeholder="0.00"
-                    id="floor-price"
-                    name="floorPrice"
-                    onChange={handleChange}
-                    value={formData.floorPrice}
+                    type="checkbox"
+                    name="link-preview"
+                    id="link-preview"
                   />
-                  <p>APT</p>
                 </div>
+              </div>
+            </div>
+            <div className="message-block">
+              <p>Message</p>
+              <div className="message-block__message">
+                The flor price for the collection <span>Collection</span> has
+                changed <br />
+                The Floor Price is now <span>Floor Price in APT</span> APT.{" "}
+                <br />
+                Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
             </div>
             <button
@@ -244,6 +271,30 @@ export default function ActionCard({
             >
               Test
             </button>
+            <button className="btn filled continue-button">Continue</button>
+          </>
+        )}
+        {isOpen && open == 4 && (
+          <>
+            <div className="connect-block">
+              <p>Twitter account</p>
+              <button className="btn bordered">
+                <img src={twitterNoBg.src} width="24" />
+                Connect with Twitter
+              </button>
+              <p className="tip">Not connected yet</p>
+            </div>
+            <div className="message-block">
+              <p>Message</p>
+              <div className="message-block__message">
+                The flor price for the collection <span>Collection</span> has
+                changed <br />
+                The Floor Price is now <span>Floor Price in APT</span> APT.{" "}
+                <br />
+                Find out more on OpenSea: <span>OpenSea URL</span>
+              </div>
+            </div>
+
             <button className="btn filled continue-button">Continue</button>
           </>
         )}
