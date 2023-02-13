@@ -5,9 +5,9 @@ import FileInvoiceDollar from "./icons/FileInvoiceDollar";
 import Puzzle from "./icons/Puzzle";
 import Cog from "./icons/Cog";
 import Wallet from "./icons/Wallet";
-import  Link  from "next/link";
+import Link from "next/link";
 
-export default function Sidebar({tab}) {
+export default function Sidebar({ tab }) {
   const [activeTab, setActiveTab] = useState(tab);
   const tabs = [
     {
@@ -40,7 +40,8 @@ export default function Sidebar({tab}) {
     <aside className="sidebar">
       <ul className="sidebar__list">
         {tabs.map((tab) => (
-          <Link href={tab.path}
+          <Link
+            href={tab.path}
             className={`sidebar__list_link ${
               activeTab === tab.title.toLowerCase() && "active"
             }`}

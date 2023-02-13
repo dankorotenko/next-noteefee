@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Link from 'next/link'
+import Wallet from '../icons/Wallet'
+import logo from '../../../public/logo.svg'
+import user from '../../../public/icons/user.svg'
 export default function Header() {
   const [openedMobileMenu, setOpenedMobileMenu] = useState(false);
   return (
@@ -8,17 +11,17 @@ export default function Header() {
       <nav className="container">
         <div className="logo">
           <Link href="/notifications">
-            <img src="logo.svg" alt="noteefee" />
+            <img src={logo.src} alt="noteefee" />
           </Link>
         </div>
         <div className="right">
           <div className="wallet">
-            {/* <Wallet /> */}
+            <Wallet />
             <p className="wallet__id">Connect</p>
           </div>
           <div className="dropdown">
             <button className="dropdown-button">
-              <img src="icons/user.svg" alt="E" />
+              <img src={user.src} alt="E" />
               Account
             </button>
             <div className="dropdown-content">
