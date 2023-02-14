@@ -21,7 +21,7 @@ export default function ActionCard({
     discordUrl: "",
     botToken: "",
     chatId: "",
-    emailAddress: '',
+    emailAddress: "",
     messageFormat: "HTML",
     type: "Below",
     userWalletAddress: "",
@@ -102,12 +102,6 @@ export default function ActionCard({
           {isOpen && (
             <>
               <button
-                className="btn bordered test-button"
-                onClick={() => setShowModal(true)}
-              >
-                Test
-              </button>
-              <button
                 className="btn bordered close-button"
                 onClick={() => handleClose(Math.random)}
               >
@@ -141,13 +135,10 @@ export default function ActionCard({
                 Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
             </div>
-            <button
-              className="btn bordered test-button--mobile"
-              onClick={() => setShowModal(true)}
-            >
-              Test
-            </button>
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {isOpen && open == 1 && (
@@ -170,8 +161,10 @@ export default function ActionCard({
                 Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
             </div>
-
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {isOpen && open == 2 && (
@@ -197,7 +190,9 @@ export default function ActionCard({
                 onChange={handleChange}
                 value={formData.userAddress}
               />
-              <p className="tip" style={{color: 'var(--black2-clr)'}}>This can be a list  of comma and space separated</p>
+              <p className="tip" style={{ color: "var(--black2-clr)" }}>
+                This can be a list of comma and space separated
+              </p>
             </div>
             <div className="message-block">
               <p>Message</p>
@@ -209,7 +204,10 @@ export default function ActionCard({
                 Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
             </div>
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {isOpen && open == 3 && (
@@ -265,13 +263,10 @@ export default function ActionCard({
                 Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
             </div>
-            <button
-              className="btn bordered test-button--mobile"
-              onClick={() => setShowModal(true)}
-            >
-              Test
-            </button>
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {isOpen && open == 4 && (
@@ -294,8 +289,10 @@ export default function ActionCard({
                 Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
             </div>
-
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {!isOpen && (

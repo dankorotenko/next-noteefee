@@ -181,6 +181,8 @@ section.info {
       display: flex;
       gap: 1rem;
       .close-button {
+        background-color: var(--gray-2-clr);
+        border: none;
         padding: 0.5rem;
       }
     }
@@ -189,6 +191,10 @@ section.info {
       font-size: 0.875rem;
       display: flex;
       justify-content: space-between;
+      &__btns{
+        display: flex;
+        gap: 1rem;
+      }
       &.opened {
         display: flex;
         flex-direction: column;
@@ -255,14 +261,6 @@ section.info {
                 }
               }
             }
-          }
-        }
-        .continue-button {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          &:hover {
-            cursor: pointer;
           }
         }
         .connect-block {

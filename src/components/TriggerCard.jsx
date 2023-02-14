@@ -96,23 +96,7 @@ export default function TriggerCard({
         </h4>
 
         <div className="cards-container__card_btns">
-          {isOpen && (open == 0 || open == 3) && (
-            <>
-              <button
-                className="btn bordered test-button"
-                onClick={() => setShowModal(true)}
-              >
-                Test
-              </button>
-              <button
-                className="btn bordered close-button"
-                onClick={() => handleClose(Math.random)}
-              >
-                <MdClose color="#8c5ae8" />
-              </button>
-            </>
-          )}
-          {((isOpen && open == 2) || open == 1) && (
+          {isOpen && (
             <>
               <button
                 className="btn bordered close-button"
@@ -161,13 +145,15 @@ export default function TriggerCard({
                 </div>
               </div>
             </div>
-            <button
-              className="btn bordered test-button--mobile"
-              onClick={() => setShowModal(true)}
-            >
-              Test
-            </button>
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button
+                className="btn bordered"
+                onClick={() => setShowModal(true)}
+              >
+                Test
+              </button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {isOpen && open == 1 && (
@@ -198,7 +184,10 @@ export default function TriggerCard({
                 </div>
               </div>
             </div>
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {isOpen && open == 2 && (
@@ -215,7 +204,10 @@ export default function TriggerCard({
               />
               <p className="tip">Enter the address that you use on Compount</p>
             </div>
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {isOpen && open == 3 && (
@@ -262,13 +254,10 @@ export default function TriggerCard({
                 </div>
               </div>
             </div>
-            <button
-              className="btn bordered test-button--mobile"
-              onClick={() => setShowModal(true)}
-            >
-              Test
-            </button>
-            <button className="btn filled continue-button">Continue</button>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
           </>
         )}
         {!isOpen && (
