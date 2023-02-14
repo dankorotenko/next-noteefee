@@ -38,7 +38,7 @@ export default function Home() {
         </h3>
         <p className="trigger__text">When this happens...</p>
         <Triggers handleChildProps={handleChildProps} />
-        <div className="some-btn"><Bell /></div>
+        {/* <div className="some-btn"><Bell /></div> */}
       </section>
 
       <div className="arrow">
@@ -52,7 +52,7 @@ export default function Home() {
         <p className="action__text">Then do this...</p>
         {/* <button className="btn bordered">Create Action</button> */}
         <Actions />
-        <div className="some-btn"><Bell /></div>
+        {/* <div className="some-btn"><Bell /></div> */}
       </section>
       <hr />
       <div className="submit-wrapper">

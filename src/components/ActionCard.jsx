@@ -22,39 +22,12 @@ export default function ActionCard({
     botToken: "",
     chatId: "",
     emailAddress: "",
+    endpoint: "",
+    headers: "",
     messageFormat: "HTML",
     type: "Below",
-    userWalletAddress: "",
     floorPrice: "",
-    collection: "Collection URL",
   });
-
-  const collectionOptions = [
-    {
-      img: collection,
-      name: "Collection #1",
-    },
-    {
-      img: collection,
-      name: "Collection #2",
-    },
-    {
-      img: collection,
-      name: "Collection #3",
-    },
-    {
-      img: collection,
-      name: "Collection #4",
-    },
-    {
-      img: collection,
-      name: "Collection #5",
-    },
-    {
-      img: collection,
-      name: "Collection #6",
-    },
-  ];
 
   const cardClass = isOpen ? "open" : "";
   const hiddenClass = isHidden ? "closed" : "";
@@ -288,6 +261,59 @@ export default function ActionCard({
                 <br />
                 Find out more on OpenSea: <span>OpenSea URL</span>
               </div>
+            </div>
+            <div className="cards-container__card_body__btns">
+              <button className="btn bordered">Test</button>
+              <button className="btn filled">Continue</button>
+            </div>
+          </>
+        )}
+        {isOpen && open == 5 && (
+          <>
+            <div className="field-wrapper endpoint">
+              <label htmlFor="eendpoint">Choose your endpoint</label>
+              <input
+                type="text"
+                placeholder="https://..."
+                id="endpoint"
+                name="endpoint"
+                onChange={handleChange}
+                value={formData.endpoint}
+              />
+            </div>
+            <div className="field-wrapper headers">
+              <label htmlFor="headers">
+                Headers<i>*</i>
+              </label>
+              <div>
+                <input
+                  type="text"
+                  placeholder="text"
+                  id="headers"
+                  name="headers"
+                  onChange={handleChange}
+                  value={formData.headers}
+                />
+                <button className="btn bordered">Add header</button>
+              </div>
+              <p className="tip" style={{ color: "var(--black2-clr)" }}>
+                * Optional
+              </p>
+            </div>
+            <div className="message-block">
+              <p>
+                Message<i>*</i>
+              </p>
+              <div className="message-block__message">
+                The flor price for the collection <span>Collection</span> has
+                changed <br />
+                The Floor Price is now <span>Floor Price in APT</span> APT.{" "}
+                <br />
+                Find out more on OpenSea: <span>OpenSea URL</span>
+              </div>
+              <p className="tip" style={{ color: "var(--black2-clr)" }}>
+                * Optional
+              </p>
             </div>
             <div className="cards-container__card_body__btns">
               <button className="btn bordered">Test</button>
