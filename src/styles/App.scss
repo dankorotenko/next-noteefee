@@ -461,7 +461,7 @@ hr {
     cursor: pointer;
   }
 }
-
+/* media */
 @media (max-width: 1024px) {
   section.trigger,
   section.action,
@@ -543,6 +543,14 @@ hr {
             input {
               width: 100%;
             }
+          }
+        }
+        .connect-block {
+          .tip {
+            align-self: center;
+          }
+          button {
+            align-self: stretch;
           }
         }
       }
