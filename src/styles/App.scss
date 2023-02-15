@@ -379,6 +379,7 @@ hr {
   align-items: center;
   justify-content: center;
   padding-inline: 25%;
+  z-index: 2;
   &__inner {
     background: var(--gray-2-clr);
     color: var(--text-clr);
@@ -628,6 +629,38 @@ hr {
     .btn {
       justify-content: center;
       padding-block: 0.75rem;
+    }
+  }
+  .modal{
+    padding-inline: var(--container-padding);
+    &__inner{
+      padding: 1.25rem;
+      &_body{
+        &__input{
+          flex-direction: column;
+          align-items: stretch;
+          .select{
+            border-right: none;
+            border-bottom: 1px solid var(--primary-clr);
+            .select-inside{
+              bottom: -55px;
+            }
+          }
+          input{
+            padding-left: 0.5rem;
+          }
+        }
+        &__btns{
+          flex-direction: column;
+          align-items: stretch;
+          margin-top: 1.5rem;
+          .btn{
+            justify-content: center;
+            padding-block: 1rem;
+            margin-top: 0;
+          }
+        }
+      }
     }
   }
 }
