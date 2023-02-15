@@ -14,7 +14,7 @@ export default function Home() {
   const [triggerDesc, setTriggerDesc] = useState('When this happens...')
   const [actionDesc, setActionDesc] = useState('Then do this...')
   const handleChildProps = (childProps) => {
-    setTrigger(childProps.trigger);
+    setTrigger(childProps);
     setTriggerDesc(childProps.triggerDescription ? childProps.triggerDescription : 'When this happens...');
   };
   const handleActionsProps = (childProps) => {

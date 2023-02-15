@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { SlArrowRight } from "react-icons/sl";
-import BigSelect from "./BigSelect";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 import Select from "./Select";
 import Modal from "./Modal";
 
 import { MdClose } from "react-icons/md";
 import { slackNoBg, twitterNoBg } from "public/logos";
+
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 export default function ActionCard({
   card,
   open,
@@ -27,6 +30,16 @@ export default function ActionCard({
     type: "Below",
     floorPrice: "",
   });
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#8c5ae8",
+      },
+    },
+  });
+
+  const label = { inputProps: { "aria-label": "Link Preview" } };
 
   const cardClass = isOpen ? "open" : "";
   const hiddenClass = isHidden ? "closed" : "";
@@ -214,12 +227,14 @@ export default function ActionCard({
                   handleSelectProps={handleSelectProps}
                 />
                 <div className="link-preview">
-                  <label htmlFor="link-preview">Enable Link Preview</label>
-                  <input
-                    type="checkbox"
-                    name="link-preview"
-                    id="link-preview"
-                  />
+                  <ThemeProvider theme={theme}>
+                    <FormControlLabel
+                      value="link-preview"
+                      control={<Switch color="primary" />}
+                      label="Enable Link Preview"
+                      labelPlacement="start"
+                    />
+                  </ThemeProvider>
                 </div>
               </div>
             </div>

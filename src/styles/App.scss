@@ -175,7 +175,7 @@ section.info {
           width: 2rem;
           height: 2rem;
         }
-        span{
+        span {
           color: var(--primary-clr);
           font-size: 0.875rem;
         }
@@ -306,9 +306,15 @@ section.info {
           }
           .link-preview {
             display: flex;
-            label {
+            .MuiFormControlLabel-label {
               color: var(--primary-clr);
               font-weight: 600;
+            }
+            .MuiSwitch-track {
+              opacity: .8;
+            }
+            .MuiSwitch-thumb {
+              color: var(--gray-2-clr);
             }
           }
         }
@@ -528,7 +534,7 @@ hr {
           flex-direction: column;
           align-items: flex-start;
         }
-        span{
+        span {
           display: none;
         }
       }
@@ -561,6 +567,18 @@ hr {
             align-self: stretch;
           }
         }
+        .message-format {
+          .inputs-wrapper{
+            width: 100%;
+            align-items: flex-start;
+            .select{
+              width: 100%;
+            }
+            .MuiFormControlLabel-root.MuiFormControlLabel-labelPlacementStart{
+              margin-left: 0;
+            }
+          }
+        }
       }
       &.open {
         .cards-container__card {
@@ -568,20 +586,10 @@ hr {
             h4 {
               flex-direction: row;
               align-items: center;
-              span {
-              }
-            }
-          }
-          &_btns {
-            .test-button {
-              display: none;
             }
           }
           &_body {
             color: var(--text-clr);
-            .test-button--mobile {
-              display: block;
-            }
             .field-wrapper {
               label {
                 margin-bottom: 0.375rem;
@@ -631,30 +639,30 @@ hr {
       padding-block: 0.75rem;
     }
   }
-  .modal{
+  .modal {
     padding-inline: var(--container-padding);
-    &__inner{
+    &__inner {
       padding: 1.25rem;
-      &_body{
-        &__input{
+      &_body {
+        &__input {
           flex-direction: column;
           align-items: stretch;
-          .select{
+          .select {
             border-right: none;
             border-bottom: 1px solid var(--primary-clr);
-            .select-inside{
+            .select-inside {
               bottom: -55px;
             }
           }
-          input{
+          input {
             padding-left: 0.5rem;
           }
         }
-        &__btns{
+        &__btns {
           flex-direction: column;
           align-items: stretch;
           margin-top: 1.5rem;
-          .btn{
+          .btn {
             justify-content: center;
             padding-block: 1rem;
             margin-top: 0;
