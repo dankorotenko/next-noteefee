@@ -4,17 +4,19 @@ import { actions } from '../data/dummy'
 
 import ActionCard from "./ActionCard";
 
-export default function Actions({ handleChildProps }) {
+export default function Actions({ handleActionsProps }) {
   const [open, setOpen] = useState(null);
   const [closeCard, setCloseCard] = useState(null);
 
 
   const handleOpen = (i) => {
     setOpen(i);
+    handleActionsProps({ actionDescription: actions[i].desc });
   };
 
   useEffect(() => {
     setOpen(null);
+    handleActionsProps({ actionDescription: null });
   }, [closeCard]);
 
   return (

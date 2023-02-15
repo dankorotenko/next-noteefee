@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { triggers } from '../data/dummy'
+import { triggers } from "../data/dummy";
 
 import TriggerCard from "./TriggerCard";
 
@@ -8,15 +8,17 @@ export default function Triggers({ handleChildProps }) {
   const [open, setOpen] = useState(null);
   const [closeCard, setCloseCard] = useState(null);
 
-
   const handleOpen = (i) => {
     setOpen(i);
-    handleChildProps({ trigger: triggers[0].title.toLowerCase() });
+    handleChildProps({
+      trigger: triggers[0].title.toLowerCase(),
+      triggerDescription: triggers[i].desc,
+    });
   };
 
   useEffect(() => {
     setOpen(null);
-    handleChildProps({ trigger: null });
+    handleChildProps({ trigger: null, triggerDescription: null });
   }, [closeCard]);
 
   return (

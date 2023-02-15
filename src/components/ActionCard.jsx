@@ -5,7 +5,6 @@ import Select from "./Select";
 import Modal from "./Modal";
 
 import { MdClose } from "react-icons/md";
-import collection from "../../public/collection.png";
 import { slackNoBg, twitterNoBg } from "public/logos";
 export default function ActionCard({
   card,
@@ -38,9 +37,6 @@ export default function ActionCard({
   const handleSelectProps = (props) => {
     setFormData({ ...formData, type: props.selected });
   };
-  const handleBigSelectProps = (props) => {
-    setFormData({ ...formData, collection: props.selected });
-  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -69,6 +65,7 @@ export default function ActionCard({
         <h4>
           {card.img}
           {card.title}
+          {isOpen && <span>/ {card.desc}</span>}
         </h4>
 
         <div className="cards-container__card_btns">

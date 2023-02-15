@@ -175,6 +175,10 @@ section.info {
           width: 2rem;
           height: 2rem;
         }
+        span{
+          color: var(--primary-clr);
+          font-size: 0.875rem;
+        }
       }
     }
     &_btns {
@@ -309,10 +313,10 @@ section.info {
           }
         }
       }
-      .headers{
+      .headers {
         & > div {
           display: flex;
-          gap: .625rem;
+          gap: 0.625rem;
           input {
             width: calc(60% - 132px);
           }
@@ -523,21 +527,24 @@ hr {
           flex-direction: column;
           align-items: flex-start;
         }
+        span{
+          display: none;
+        }
       }
       &_desc {
         font-weight: 500;
       }
       &_body {
         color: var(--primary-clr);
-        &__btns{
+        &__btns {
           flex-direction: column;
         }
-        .message-block{
-          &__message{
+        .message-block {
+          &__message {
             width: 100%;
           }
         }
-        .headers{
+        .headers {
           & > div {
             flex-direction: column;
             input {
@@ -560,6 +567,8 @@ hr {
             h4 {
               flex-direction: row;
               align-items: center;
+              span {
+              }
             }
           }
           &_btns {

@@ -93,6 +93,7 @@ export default function TriggerCard({
         <h4>
           {card.img}
           {card.title}
+          {isOpen && <span>/ {card.desc}</span>}
         </h4>
 
         <div className="cards-container__card_btns">

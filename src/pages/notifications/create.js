@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BsArrowDown } from "react-icons/bs";
-import Link from 'next/link'
 
 import InfoCard from "../../components/InfoCard";
 import Triggers from "../../components/Triggers";
@@ -12,9 +11,15 @@ import Bell from '../../components/icons/Bell'
 
 export default function Home() {
   const [trigger, setTrigger] = useState(null);
+  const [triggerDesc, setTriggerDesc] = useState('When this happens...')
+  const [actionDesc, setActionDesc] = useState('Then do this...')
   const handleChildProps = (childProps) => {
-    setTrigger(childProps);
+    setTrigger(childProps.trigger);
+    setTriggerDesc(childProps.triggerDescription ? childProps.triggerDescription : 'When this happens...');
   };
+  const handleActionsProps = (childProps) => {
+    setActionDesc(childProps.actionDescription ? childProps.actionDescription : 'Then do this...');
+  }
   return (
     <main className={`main container ${trigger && trigger.trigger}`}>
       <div className="wallet">
@@ -36,7 +41,7 @@ export default function Home() {
         <h3 className="trigger__title">
           <img src='../bolt.svg' /> Trigger
         </h3>
-        <p className="trigger__text">When this happens...</p>
+        <p className="trigger__text">{triggerDesc}</p>
         <Triggers handleChildProps={handleChildProps} />
         {/* <div className="some-btn"><Bell /></div> */}
       </section>
@@ -49,9 +54,9 @@ export default function Home() {
         <h3 className="action__title">
           <img src='../bell.svg' /> Action
         </h3>
-        <p className="action__text">Then do this...</p>
+        <p className="action__text">{actionDesc}</p>
         {/* <button className="btn bordered">Create Action</button> */}
-        <Actions />
+        <Actions handleActionsProps={handleActionsProps}/>
         {/* <div className="some-btn"><Bell /></div> */}
       </section>
       <hr />
