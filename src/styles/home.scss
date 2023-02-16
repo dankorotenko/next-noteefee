@@ -66,8 +66,8 @@
       border: 0;
       border-radius: 0;
       background-color: transparent;
-      &__title{
-        &_tip{
+      &__title {
+        &_tip {
           color: var(--primary-clr);
         }
       }
@@ -228,40 +228,41 @@
         font-weight: 600;
         font-size: 1.125rem;
       }
-      &_table{
+      &_table {
         width: 100%;
-        font-size: .875rem;
+        font-size: 0.875rem;
         margin-top: 1.25rem;
         border-collapse: collapse;
-        thead{
+        thead {
           color: var(--black2-clr);
         }
-        tbody{
+        tbody {
           color: var(--text-clr);
-          tr{
-            &:nth-child(odd){
+          tr {
+            &:nth-child(odd) {
               background-color: var(--bg-clr);
             }
-            &:nth-child(even){
+            &:nth-child(even) {
               background-color: var(--gray-2-clr);
             }
           }
         }
-        th, td{
+        th,
+        td {
           border-bottom: 1px solid var(--gray3-clr);
           padding: 0.625rem;
           text-align: left;
           font-weight: 400;
         }
       }
-      .no-data{
+      .no-data {
         width: 330px;
         height: 300px;
-        background: url('../../public/no-delivered.png') no-repeat;
+        background: url("../../public/no-delivered.png") no-repeat;
         margin: 0 auto;
         margin-top: 9rem;
         display: flex;
-        border-radius: .625rem;
+        border-radius: 0.625rem;
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
@@ -272,6 +273,26 @@
         text-align: center;
         font-weight: 800;
       }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    &__body {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    &__header {
+      &_btns {
+      }
+    }
+    &__body {
+      grid-template-columns: 1fr;
     }
   }
 }
