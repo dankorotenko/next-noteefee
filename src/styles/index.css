@@ -212,7 +212,12 @@ a{
   background-color: var(--primary-clr);
 }
 
-@media screen and (width <= 425px) {
+@media screen and (max-width: 530px){
+  .container{
+    --container-padding: 1.75rem;
+  }
+}
+@media screen and (max-width: 425px) {
   .container {
     --container-padding: 2.3%;
   }

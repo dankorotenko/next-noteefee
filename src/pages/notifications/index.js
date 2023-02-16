@@ -6,7 +6,7 @@ import { BsPlusCircle } from "react-icons/bs";
 
 import InfoCard from "../../components/InfoCard";
 import Sidebar from "../../components/Sidebar";
-
+import Sms from "../../components/icons/Sms";
 import { notifications } from "../../data/dummy";
 
 export default function Notifications() {
@@ -14,6 +14,10 @@ export default function Notifications() {
     <div className="dashboard">
       <Sidebar tab={"notifications"} />
       <section className="content">
+        <div className="content__preheader">
+          <Sms />
+          Notifications
+        </div>
         <div className="content__header">
           <h2 className="content__header_title">
             Notifications <AiOutlineInfoCircle color="#A8A8A8" />
@@ -48,7 +52,7 @@ export default function Notifications() {
           {notifications.length != 0 ? (
             notifications.map((n, i) => (
               <Link
-                href={'/notifications/' + n.id}
+                href={"/notifications/" + n.id}
                 className="notification-card"
                 key={i}
               >
@@ -89,6 +93,12 @@ export default function Notifications() {
             </Link>
           )}
         </div>
+        <Link
+          href="/notifications/create"
+          className="btn filled create-btn--mobile"
+        >
+          Create a New notification
+        </Link>
       </section>
     </div>
   );
