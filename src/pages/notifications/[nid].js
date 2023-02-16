@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
+
 import Sidebar from "../../components/Sidebar";
+import Table from "../../components/Table";
 
 import { notifications } from "../../data/dummy";
-import Table from "../../components/Table";
+
+import Sms from "../../components/icons/Sms";
 
 export const getStaticPaths = () => {
   const paths = notifications.map((n) => {
@@ -22,11 +25,11 @@ export const getStaticProps = (context) => {
   const id = context.params.nid;
   const findOne = notifications.find((n) => n.id === id);
   return {
-    props: {n: findOne}
-  }
-}
+    props: { n: findOne },
+  };
+};
 
-export default function SingleNotification({n}) {
+export default function SingleNotification({ n }) {
   const router = useRouter();
 
   const [active, setActive] = useState(n.active);
@@ -35,6 +38,10 @@ export default function SingleNotification({n}) {
     <div className="dashboard">
       <Sidebar tab={"notifications"} />
       <section className="content notification">
+        <div className="content__preheader">
+          <Sms />
+          Notifications
+        </div>
         <div className="content__header">
           <h2 className="content__header_title">{n.title}</h2>
           <div className="content__header_btns">
@@ -46,7 +53,10 @@ export default function SingleNotification({n}) {
           </div>
         </div>
         <div className="content__back">
-          <BsArrowLeftCircleFill color="#8C5AE8" onClick={() => router.back()} />{" "}
+          <BsArrowLeftCircleFill
+            color="#8C5AE8"
+            onClick={() => router.back()}
+          />{" "}
           Back
         </div>
         <div className="content__subheader expanded-card">
@@ -55,6 +65,7 @@ export default function SingleNotification({n}) {
               <img src={n.logos[0]} />
               <img src={n.logos[1]} />
             </div>
+            <div className="expanded-card__title">{n.title}</div>
             <div className="expanded-card__text">{n.description}</div>
           </div>
           <div className="expanded-card__right">
@@ -65,7 +76,15 @@ export default function SingleNotification({n}) {
               {active ? "Active" : "No Active"}
             </div>
           </div>
+          <div className="expanded-card__btns">
+            <button className="btn bordered">Delete</button>
+            <button className="btn bordered" onClick={() => setActive(!active)}>
+              {active ? "Deactivate" : "Activate"}
+            </button>
+            <button className="btn filled">Edit</button>
+          </div>
         </div>
+        
         <div className="content__body">
           <h3 className="content__body_title">Notification history</h3>
           <Table className="content__body_table" data={n.history} />
