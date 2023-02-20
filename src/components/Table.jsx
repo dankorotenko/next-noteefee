@@ -3,31 +3,29 @@ import React from "react";
 export default function Table({ className, data }) {
   return (
     <>
-      <table className={className}>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Trigger context</th>
-            <th>Action Outcome</th>
-            <th>Trigger Error</th>
-          </tr>
-        </thead>
+      <div className={`table ${className}`}>
+        <div className="table__head">
+            <div>Date</div>
+            <div>Trigger context</div>
+            <div>Action Outcome</div>
+            <div>Trigger Error</div>
+        </div>
         {data.length ? (
-          <tbody>
+          <div className="table__body">
             {data.map((l, i) => (
-              <tr key={i}>
-                <td>{l.date}</td>
-                <td>{l.triggerContext}</td>
-                <td>{l.actionOutcome}</td>
-                <td>{l.triggerErr}</td>
-              </tr>
+              <div className="table__body_line" key={i}>
+                <div>{l.date}</div>
+                <div>{l.triggerContext}</div>
+                <div>{l.actionOutcome}</div>
+                <div>{l.triggerErr}</div>
+              </div>
             ))}
-          </tbody>
+          </div>
         ) : (
           ""
         )}
-      </table>
-      {!data.length ? <div className="no-data"><img src="icons/exclamation.svg" alt="!" /> You currently have no messages<div className="triangle"></div></div> : ""}
+      </div>
+      {!data.length ? <div className="no-data"><img src="../icons/exclamation.svg" alt="!" /> You currently have no messages<div className="triangle"></div></div> : ""}
     </>
   );
 }

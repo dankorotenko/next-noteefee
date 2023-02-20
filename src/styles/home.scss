@@ -249,27 +249,6 @@
         font-size: 0.875rem;
         margin-top: 1.25rem;
         border-collapse: collapse;
-        thead {
-          color: var(--black2-clr);
-        }
-        tbody {
-          color: var(--text-clr);
-          tr {
-            &:nth-child(odd) {
-              background-color: var(--bg-clr);
-            }
-            &:nth-child(even) {
-              background-color: var(--gray-2-clr);
-            }
-          }
-        }
-        th,
-        td {
-          border-bottom: 1px solid var(--gray3-clr);
-          padding: 0.625rem;
-          text-align: left;
-          font-weight: 400;
-        }
       }
       .no-data {
         width: 330px;
@@ -343,6 +322,9 @@
       }
     }
     &__body {
+      h3{
+        display: none;
+      }
       .notification-card {
         padding: 1.25rem 0.625rem;
         &__left {
