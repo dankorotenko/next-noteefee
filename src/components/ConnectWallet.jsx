@@ -30,23 +30,30 @@ export default function ConnectWallet() {
   //   };
 
   function getAllExtensions(callback) {
-    chrome.management.getAll(function (extensions) {
-      var extensionList = [];
-      for (var i = 0; i < extensions.length; i++) {
-        if (extensions[i].type === "extension") {
-          extensionList.push({
-            id: extensions[i].id,
-            name: extensions[i].name,
-            version: extensions[i].version,
-          });
+    if (typeof chrome !== 'undefined' && typeof chrome.management !== 'undefined') {
+      chrome.management.getAll(function(extensions) {
+        var extensionList = [];
+        for (var i = 0; i < extensions.length; i++) {
+          if (extensions[i].type === 'extension') {
+            extensionList.push({
+              id: extensions[i].id,
+              name: extensions[i].name,
+              version: extensions[i].version
+            });
+          }
         }
-      }
-      callback(extensionList);
-    });
+        callback(extensionList);
+      });
+    } else {
+      console.log('chrome.management API not available');
+    }
   }
+  
+  // Call getAllExtensions and log the list of extensions to the console
   getAllExtensions(function(extensions) {
     console.log(extensions);
   });
+  
   return (
     <div className={`wallet ${open ? "opened" : ""}`}>
       <div className="wallet__main" onClick={() => setOpen(!open)}>
