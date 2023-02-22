@@ -9,6 +9,9 @@ import Account from "../components/icons/logos/Account";
 import Wallet from '../components/icons/logos/Account'
 import Topaz from "../components/icons/logos/Topaz";
 
+import termino from "../../public/termino.jpg";
+import coinbase from "../../public/coinbase.png";
+
 
 import { telegram, aptos, discord, slack } from '../../public/logos'
 
@@ -219,5 +222,18 @@ export const actions = [
     title: "Webhook",
     desc: "Send a POST request",
     img: <Webhook />,
+  },
+];
+
+export const wallets = [
+  {
+    extLink: "Termino Wallet",
+    name: "Termino",
+    img: termino.src,
+  },
+  {
+    extLink: "Coinbase",
+    name: "Coinbase",
+    img: coinbase.src,
   },
 ];
