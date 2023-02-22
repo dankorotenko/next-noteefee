@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Link from 'next/link'
 import { useRouter } from "next/router";
-
-import Wallet from '../icons/Wallet'
-
+import ConnectWallet from "../ConnectWallet";
 import logo from '../../../public/logo.svg'
 import user from '../../../public/icons/user.svg'
 
@@ -33,10 +31,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="right">
-          <div className="wallet">
-            <Wallet />
-            <p className="wallet__id">Connect</p>
-          </div>
+          <ConnectWallet />
           <div className="dropdown">
             <button className="dropdown-button">
               <img src={user.src} alt="E" />
