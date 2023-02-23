@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import Wallet from "./icons/Wallet";
+import { wallets } from "../data/dummy";
 
-
-import { wallets } from '../data/dummy'
-
-export default function ConnectWallet() {
+export default function ConnectWallet({handleChildErrorProps}) {
   const [open, setOpen] = useState(false);
 
-  //   const checkExtension = (extLink) => {
-  //     if (typeof chrome !== 'undefined' && typeof chrome.extension !== 'undefined') {
-  //       if (chrome.extension.getURL(extLink)) {
-  //         console.log('Extension installed!');
-  //       } else {
-  //         console.log('Extension not installed.');
-  //       }
-  //     } else {
-  //       console.log('Chrome extension API not available.');
-  //     }
-  //   };
-
+  
+  const checkTermino = () => {
+    if (!window.termino) {
+      handleChildErrorProps({termino: false});
+      setTimeout(() => {
+        handleChildErrorProps({termino: true});
+      }, 5000);
+    } 
+    setOpen(false);
+  };
 
   return (
     <div className={`wallet ${open ? "opened" : ""}`}>
@@ -29,7 +25,7 @@ export default function ConnectWallet() {
       {open && (
         <ul className="wallet__list">
           {wallets.map((wallet) => (
-            <li key={wallet.name} onClick={() => checkExtension()}>
+            <li key={wallet.name} onClick={() => checkTermino()}>
               <img src={wallet.img} alt={wallet.name} />
               {wallet.name}
             </li>

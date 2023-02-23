@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Link from "next/link";
 import { AiOutlineInfoCircle } from "react-icons/ai";
@@ -9,7 +9,10 @@ import Sidebar from "../../components/Sidebar";
 import Sms from "../../components/icons/Sms";
 import { notifications } from "../../data/dummy";
 
+
+
 export default function Notifications() {
+
   return (
     <div className="dashboard">
       <Sidebar tab={"notifications"} />

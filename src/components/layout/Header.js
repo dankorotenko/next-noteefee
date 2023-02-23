@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from "react";
 
-import Link from 'next/link'
+import Link from "next/link";
 import { useRouter } from "next/router";
 import ConnectWallet from "../ConnectWallet";
-import logo from '../../../public/logo.svg'
-import user from '../../../public/icons/user.svg'
+import logo from "../../../public/logo.svg";
+import user from "../../../public/icons/user.svg";
+import { BiError } from "react-icons/bi";
 
 export default function Header() {
   const [auth, setAuth] = useState("");
   const [openedMobileMenu, setOpenedMobileMenu] = useState(false);
+  const [isTerminoInstalled, setIsTerminoInstalled] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     setAuth(
       router.pathname.split("/")[router.pathname.split("/").length - 1] ===
         "login" ||
-        router.pathname.split("/")[
-          router.pathname.split("/").length - 1
-        ] === "signup"
+        router.pathname.split("/")[router.pathname.split("/").length - 1] ===
+          "signup"
         ? "log"
         : ""
     );
   }, [router]);
+
+  const handleChildErrorProps = (childErrorProps) => {
+    setIsTerminoInstalled(childErrorProps.termino);
+  };
   return (
     <header className={`${auth}`}>
       <nav className="container">
@@ -31,7 +36,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="right">
-          <ConnectWallet />
+          <ConnectWallet handleChildErrorProps={handleChildErrorProps} />
           <div className="dropdown">
             <button className="dropdown-button">
               <img src={user.src} alt="E" />
@@ -71,6 +76,21 @@ export default function Header() {
         </div>
       </nav>
       <div className="line"></div>
+      {!isTerminoInstalled && (
+        <div className={`wallet-error`}>
+          <BiError size="32px" />
+          <span>Termino not detected!</span>
+          <p>
+            <a
+              href="https://chrome.google.com/webstore/detail/termino-wallet/bbjmepflljbbfaehppakknfgdnojoled?hl=uk"
+              target="_blank"
+            >
+              Install
+            </a>{" "}
+            Termino to start using APTOS.
+          </p>
+        </div>
+      )}
     </header>
   );
 }
