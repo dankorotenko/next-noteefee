@@ -13,9 +13,11 @@ export default function TriggerCard({
   isHidden,
   onClick,
   setCloseCard,
+  setSavedTrigger
 }) {
   const ref = useRef();
   const [showModal, setShowModal] = useState(false);
+
   const [formData, setFormData] = useState({
     userAddress: "",
     thresholdAmount: "",
@@ -82,6 +84,17 @@ export default function TriggerCard({
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const saveTrigger = (i) => {
+    console.log(i);
+    setSavedTrigger({
+      id: i,
+      image: '',
+      description: `${formData.type.toLowerCase()} ${formData.aptosPrice} $`,
+      when: '/ When the Aptos price is'
+    })
+    console.log('saved');
+    setCloseCard(i);
+  }
 
   return (
     <div
@@ -91,9 +104,13 @@ export default function TriggerCard({
     >
       <div className="cards-container__card_title">
         <h4>
-          {card.img}
+          <img src={card.img} alt={card.title}/>
           {card.title}
-          {isOpen && <span>/ {card.desc}</span>}
+          {open == 1 && isOpen && (
+            <span>
+              / {card.desc} {formData.type} {formData.aptosPrice && `${formData.aptosPrice} $`}
+            </span>
+          )}
         </h4>
 
         <div className="cards-container__card_btns">
@@ -187,7 +204,9 @@ export default function TriggerCard({
             </div>
             <div className="cards-container__card_body__btns">
               <button className="btn bordered">Test</button>
-              <button className="btn filled">Continue</button>
+              <button className="btn filled" onClick={() => saveTrigger(open)}>
+                Continue
+              </button>
             </div>
           </>
         )}

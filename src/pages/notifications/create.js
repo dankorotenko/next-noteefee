@@ -5,21 +5,27 @@ import InfoCard from "../../components/InfoCard";
 import Triggers from "../../components/Triggers";
 import Actions from "../../components/Actions";
 import Wallet from "../../components/icons/Wallet";
-import Bell from '../../components/icons/Bell'
-
-
+import Bell from "../../components/icons/Bell";
 
 export default function Home() {
   const [trigger, setTrigger] = useState(null);
-  const [triggerDesc, setTriggerDesc] = useState('When this happens...')
-  const [actionDesc, setActionDesc] = useState('Then do this...')
+  
+  const [actionDesc, setActionDesc] = useState("Then do this...");
   const handleChildProps = (childProps) => {
     setTrigger(childProps);
-    setTriggerDesc(childProps.triggerDescription ? childProps.triggerDescription : 'When this happens...');
+    // setTriggerDesc(
+    //   childProps.triggerDescription
+    //     ? childProps.triggerDescription
+    //     : "When this happens..."
+    // );
   };
   const handleActionsProps = (childProps) => {
-    setActionDesc(childProps.actionDescription ? childProps.actionDescription : 'Then do this...');
-  }
+    setActionDesc(
+      childProps.actionDescription
+        ? childProps.actionDescription
+        : "Then do this..."
+    );
+  };
   return (
     <main className={`main container ${trigger && trigger.trigger}`}>
       <div className="wallet">
@@ -37,14 +43,7 @@ export default function Home() {
         />
       </section>
 
-      <section className="trigger">
-        <h3 className="trigger__title">
-          <img src='../bolt.svg' /> Trigger
-        </h3>
-        <p className="trigger__text">{triggerDesc}</p>
-        <Triggers handleChildProps={handleChildProps} />
-        {/* <div className="some-btn"><Bell /></div> */}
-      </section>
+      <Triggers handleChildProps={handleChildProps} />
 
       <div className="arrow">
         <BsArrowDown size="2.5em" color="#8C5AE8" />
@@ -52,11 +51,11 @@ export default function Home() {
 
       <section className="action">
         <h3 className="action__title">
-          <img src='../bell.svg' /> Action
+          <img src="../bell.svg" /> Action
         </h3>
         <p className="action__text">{actionDesc}</p>
         {/* <button className="btn bordered">Create Action</button> */}
-        <Actions handleActionsProps={handleActionsProps}/>
+        <Actions handleActionsProps={handleActionsProps} />
         {/* <div className="some-btn"><Bell /></div> */}
       </section>
       <hr />

@@ -125,7 +125,33 @@ section.info {
     cursor: pointer;
   }
 }
-
+.trigger.saved{
+  border: 2px solid var(--primary-clr);
+  display: flex;
+  justify-content: space-between;
+  .trigger{
+    &__head{
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+    }
+    &__text{
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      font-size: 1rem;
+      span{
+        font-weight: 600;
+        color: var(--primary-clr);
+      }
+    }
+    &__change{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+}
 .cards-container {
   &__body {
     /* display: grid; */
