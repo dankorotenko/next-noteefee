@@ -8,6 +8,8 @@ import Modal from "./Modal";
 import { MdClose } from "react-icons/md";
 import { slackNoBg, twitterNoBg } from "public/logos";
 
+import { actions } from "../data/dummy.js";
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 export default function ActionCard({
   card,
@@ -16,6 +18,7 @@ export default function ActionCard({
   isHidden,
   onClick,
   setCloseCard,
+  setSavedAction
 }) {
   const ref = useRef();
   const [showModal, setShowModal] = useState(false);
@@ -67,6 +70,14 @@ export default function ActionCard({
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const saveAction = (i) => {
+    setSavedAction({
+      id: i,
+      image: actions[i].img,
+      description: '/ Post a message'
+    })
+    setCloseCard(i);
+  }
 
   return (
     <div
@@ -75,10 +86,14 @@ export default function ActionCard({
       ref={ref}
     >
       <div className="cards-container__card_title">
-        <h4>
-          {card.img}
+      <h4>
+          <img src={card.img} alt={card.title}/>
           {card.title}
-          {isOpen && <span>/ {card.desc}</span>}
+          {open == 0 && isOpen && (
+            <span>
+              / {card.desc} {formData.type} {formData.aptosPrice && `${formData.aptosPrice} $`}
+            </span>
+          )}
         </h4>
 
         <div className="cards-container__card_btns">
@@ -102,7 +117,7 @@ export default function ActionCard({
               <input
                 type="text"
                 placeholder="http:// discord.com/api/webhooks/..."
-                id="discordd-url"
+                id="discord-url"
                 name="discordUrl"
                 onChange={handleChange}
                 value={formData.userAddress}
@@ -120,7 +135,7 @@ export default function ActionCard({
             </div>
             <div className="cards-container__card_body__btns">
               <button className="btn bordered">Test</button>
-              <button className="btn filled">Continue</button>
+              <button className="btn filled" onClick={() => saveAction(open)}>Continue</button>
             </div>
           </>
         )}

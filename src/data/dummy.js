@@ -1,9 +1,3 @@
-import Telegram from "../components/icons/logos/Telegram";
-import Discord from "../components/icons/logos/Discord";
-import Slack from "../components/icons/logos/Slack";
-import Email from "../components/icons/logos/Email";
-import Twitter from "../components/icons/logos/Twitter";
-import Webhook from "../components/icons/logos/Webhook";
 
 import termino from "../../public/termino.jpg";
 import coinbase from "../../public/coinbase.png";
@@ -192,32 +186,32 @@ export const actions = [
   {
     title: "Discord",
     desc: "Post a message",
-    img: <Discord />,
+    img: logos.discord.src,
   },
   {
     title: "Slack",
     desc: "Post a message",
-    img: <Slack />,
+    img: logos.slack.src,
   },
   {
     title: "Email",
     desc: "Send an email",
-    img: <Email />,
+    img: logos.email.src,
   },
   {
     title: "Telegram",
     desc: "Send a message",
-    img: <Telegram />,
+    img: logos.telegram.src,
   },
   {
     title: "Twitter",
     desc: "Post a tweet",
-    img: <Twitter />,
+    img: logos.twitterNoBg.src,
   },
   {
     title: "Webhook",
     desc: "Send a POST request",
-    img: <Webhook />,
+    img: logos.webhook.src,
   },
 ];
 

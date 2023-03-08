@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import { triggers } from "../data/dummy";
+import { triggers } from "../data/dummy.js";
 
 import TriggerCard from "./TriggerCard";
-import saved from '../../public/saved.png'
-export default function Triggers({ handleChildProps }) {
+import saved from "../../public/saved.png";
+export default function Triggers({ handleChildProps, savedTrigger, setSavedTrigger }) {
   const [open, setOpen] = useState(null);
   const [closeCard, setCloseCard] = useState(null);
 
   const [triggerDesc, setTriggerDesc] = useState("When this happens...");
 
-  const [savedTrigger, setSavedTrigger] = useState({
-    id: -1,
-    image: "",
-    description: "",
-    when: "",
-  });
 
   const handleOpen = (i) => {
     setOpen(i);
@@ -53,8 +47,7 @@ export default function Triggers({ handleChildProps }) {
             triggerDesc
           ) : (
             <>
-              {savedTrigger.when}{" "}
-              <span>{savedTrigger.description}</span>
+              / {savedTrigger.when} <span>{savedTrigger.description}</span>
             </>
           )}
         </p>
@@ -76,8 +69,13 @@ export default function Triggers({ handleChildProps }) {
         </div>
       ) : (
         <div className="trigger__change">
-          <button className="btn bordered" onClick={() => setSavedTrigger({id: -1})}>Change</button>
-          <img src={saved.src} alt="ok" width={24} height={24}/>
+          <button
+            className="btn bordered"
+            onClick={() => setSavedTrigger({ id: -1 })}
+          >
+            Change
+          </button>
+          <img src={saved.src} alt="ok" width={24} height={24} />
         </div>
       )}
       {/* <div className="some-btn"><Bell /></div> */}

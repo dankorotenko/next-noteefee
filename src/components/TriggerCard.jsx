@@ -4,6 +4,7 @@ import BigSelect from "./BigSelect";
 import Select from "./Select";
 import Modal from "./Modal";
 
+import { triggers } from '../data/dummy.js'
 import { MdClose } from "react-icons/md";
 import collection from "../../public/collection.png";
 export default function TriggerCard({
@@ -88,9 +89,9 @@ export default function TriggerCard({
     console.log(i);
     setSavedTrigger({
       id: i,
-      image: '',
+      image: triggers[i].img,
       description: `${formData.type.toLowerCase()} ${formData.aptosPrice} $`,
-      when: '/ When the Aptos price is'
+      when: 'When the Aptos price is'
     })
     console.log('saved');
     setCloseCard(i);

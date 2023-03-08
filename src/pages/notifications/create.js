@@ -1,15 +1,38 @@
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { BsArrowDown } from "react-icons/bs";
+
+import { useRouter } from "next/router";
 
 import InfoCard from "../../components/InfoCard";
 import Triggers from "../../components/Triggers";
 import Actions from "../../components/Actions";
 import Wallet from "../../components/icons/Wallet";
-import Bell from "../../components/icons/Bell";
 
+import { notifications } from "../../data/dummy.js";
 export default function Home() {
+  const router = useRouter();
   const [trigger, setTrigger] = useState(null);
-  
+
+  const [notification, setNotification] = useState({
+    id: "",
+    title: "",
+    description: "",
+    active: true,
+    history: [],
+  });
+  const [savedTrigger, setSavedTrigger] = useState({
+    id: -1,
+    image: "",
+    description: "",
+    when: "",
+  });
+  const [savedAction, setSavedAction] = useState({
+    id: -1,
+    image: "",
+    description: "",
+  });
+
   const [actionDesc, setActionDesc] = useState("Then do this...");
   const handleChildProps = (childProps) => {
     setTrigger(childProps);
@@ -25,6 +48,28 @@ export default function Home() {
         ? childProps.actionDescription
         : "Then do this..."
     );
+  };
+
+  const handleChange = (e) => {
+    setNotification({ ...notification, title: e.target.value });
+  };
+  useEffect(() => {
+    setNotification({
+      ...notification,
+      id: "new1234",
+      logos: [savedTrigger.image, savedAction.image],
+      description: savedTrigger.when + " " + savedTrigger.description,
+      active: true,
+      history: [],
+    });
+  }, [notification.title])
+
+  const saveNotification = () => {
+
+    //push to database
+    notifications.push(notification);
+
+    router.push('/notifications')
   };
   return (
     <main className={`main container ${trigger && trigger.trigger}`}>
@@ -43,25 +88,34 @@ export default function Home() {
         />
       </section>
 
-      <Triggers handleChildProps={handleChildProps} />
+      <Triggers
+        handleChildProps={handleChildProps}
+        savedTrigger={savedTrigger}
+        setSavedTrigger={setSavedTrigger}
+      />
 
       <div className="arrow">
         <BsArrowDown size="2.5em" color="#8C5AE8" />
       </div>
 
-      <section className="action">
-        <h3 className="action__title">
-          <img src="../bell.svg" /> Action
-        </h3>
-        <p className="action__text">{actionDesc}</p>
-        {/* <button className="btn bordered">Create Action</button> */}
-        <Actions handleActionsProps={handleActionsProps} />
-        {/* <div className="some-btn"><Bell /></div> */}
-      </section>
+      <Actions
+        handleActionsProps={handleActionsProps}
+        savedAction={savedAction}
+        setSavedAction={setSavedAction}
+      />
       <hr />
       <div className="submit-wrapper">
-        <input type="text" className="submit-input" placeholder="Name" />
-        <button className="btn filled submit-button">Save Notification</button>
+        <input
+          type="text"
+          className="submit-input"
+          placeholder="Name"
+          name="title"
+          onChange={handleChange}
+          value={notification.title}
+        />
+        <button className="btn filled submit-button" onClick={saveNotification}>
+          Save Notification
+        </button>
       </div>
     </main>
   );
